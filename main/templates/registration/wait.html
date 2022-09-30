@@ -1,0 +1,27 @@
+{%extends 'base.html' %}
+{%block content %}
+
+<html>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br><br>
+    {%load crispy_forms_tags%}
+    <center>
+<form action="" method="POST">
+    {%csrf_token%}
+    {{form|crispy}}
+    <br>
+    <button>submit</button>
+
+</form>
+<br><br>
+click <a href="{%url 'reg'%}">here</a>  to create new account 
+</center>
+{%endblock%}
+</html>

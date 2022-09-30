@@ -1,0 +1,24 @@
+<html>
+    {% if user.is_authenticated %}
+
+    <div class="media">
+        <img src="{{ user.profile.image.url}}" alt="See photo" border-radius="50%" style="border-radius: 100%;" width="242" height="242">
+    </div>
+<h1>welcome {{user.first_name}} {{user.last_name}}
+
+</h1><br>
+<p> Your username is {{user.username}}</p>
+<br>
+your email is{{user.email}}
+<br>
+<p>MATRIC_NO {{user.profile.MATRIC_NO}}</p>
+<br>
+<p>DEPARTMENT {{user.profile.DEPARTMENT}}</p>
+<br>
+
+
+
+{%else%}
+<p>login here <a href="login">here</a></p>
+{%endif%}
+</html>

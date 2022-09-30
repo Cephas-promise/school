@@ -1,0 +1,123 @@
+{%load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{ % static 'high_school.css' %}">
+    <title> &#128218; Cephas high school</title>
+    <style>
+      body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+nav{
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    background-color: #4C99CE;
+    height: 115px;
+    position: fixed;
+    top: 0;
+    width: 99%;
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.logo{
+    width: 120px;
+    height: 120px;
+    background-color: #B7D43E; 
+}
+.one{
+    display: flex;
+    width: 40%;
+}
+.name{
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: -10px;
+    color: white;
+}
+.uhm{
+    margin-top: -15px;
+}
+.sec{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 70px;
+    font-size: 25px;
+    margin: 70px 30px 0px;
+    margin-left: -100px;
+    padding: 0px 0px 10px 0px;
+    color: white;
+}
+.home{
+    color: #DF9523;
+    font-weight: bolder;
+}
+.sp{
+    padding: 0px 10px;
+    height: 35px;
+    border-radius: 5px;
+}
+.sp:hover{
+    background-color: #DF9523;
+    color: white;
+}
+section{
+    margin-top: 125px;
+}
+.build{
+    font-size: 30px;
+}
+
+
+    </style>
+</head>
+<body>
+    <nav>
+      
+        <div class="one">
+            <div><a href="{% static 'Cephas high school.html' %}"><img src="{% static 'university img\art.jpg' %}" alt="" class="logo"></a></div> 
+            <div class="name"><b>Cephas high <div class="uhm">school</div></b></div> 
+        </div>
+        <div class="sec">
+            <div class="home">
+                Home
+            </div>
+            {%if user.is_authenticated%}
+            <div class="pro">
+               <a href="{%url 'studentprofile' %}">Profile</a> 
+            </div>
+            {%else%}
+            <div class="pro">
+              Programmes
+          </div>{%endif%}
+          {%if user.is_authenticated%}
+            <div class="add">
+               <a href="{%url 'result' %}">Result</a> 
+            </div>
+            {%else%}
+            <div class="pro">
+              Addmission
+          </div>{%endif%}
+            <div>
+                About
+            </div>
+            {%if user.is_authenticated%}
+            <div class="sp">
+              {{user.first_name}}  
+          </div>
+          {%else%}
+            <div class="sp">
+                <a href="{%url 'login'%}">Student portal</a>  
+            </div>{%endif%}
+        </div>
+    </nav>
+    {%block content %}
+    {%endblock%}

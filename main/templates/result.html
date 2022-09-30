@@ -1,0 +1,9 @@
+welcome {{user.first_name}} {{user.last_name}}
+your result is as follows 
+<br>
+{%if user.is_authenticated%}
+{{user.result.subject1}}     {{user.result.score1}}
+{{user.result.subject2}}     {{user.result.score2}}
+{%else%}
+go back
+{%endif%}

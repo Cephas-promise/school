@@ -1,0 +1,21 @@
+{%extends 'base.html' %}
+{%block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br><br>
+<html>
+    {%load crispy_forms_tags%}
+<form action="" method="POST">
+    {%csrf_token%}
+{{form|crispy}}
+<br>
+<button>submit</button>
+</form>
+{%endblock%}
+</html>

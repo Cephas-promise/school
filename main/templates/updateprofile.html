@@ -1,0 +1,11 @@
+<html>
+    {% load crispy_forms_tags %}
+<form method="POST" enctype="multipart/form-data" action="">
+    {% csrf_token %}
+    
+   {{s_form|crispy}}
+   {{p_form|crispy}}
+    <button class="btn btn-outline-info" type="submin">update</button>
+</form>
+
+</html>

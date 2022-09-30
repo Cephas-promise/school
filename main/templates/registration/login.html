@@ -1,0 +1,164 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            
+        }
+        .container{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            animation: samuel 30s ease-in-out infinite;
+            background-size: cover;
+        }
+        .outer{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(95, 95, 95, 0.5);
+        }
+        .details{
+            position: absolute;
+            border-radius: 10px;
+            transform: translate(-50%, -50%); 
+            top: 50%;
+            left: 50%;
+            padding: 20px;
+            margin-top: 60px;
+            background-color: rgba(231, 229, 229, 0.5);
+           
+        }
+        @keyframes samuel {
+            0%,100%{
+                background-image:url(/static/imgs/bright-education-logo-2AJ06MD.jpg);
+            }
+            25%{
+                background-image:url(/static/imgs/classroom.jpg) ;  
+            }
+            50%{
+                background-image:url(/static/imgs/area.jpg) ;
+            }
+            75%{
+                background-image:url(/static/imgs/capwithbook.jpg) ;
+            }
+            }
+            .one{
+                display: flex;
+                margin: 50px;
+            }
+            .name{
+                font-size: 45px;
+                margin-top: 10px;
+                margin-left: 10px;
+                color: white;
+                text-align: center;
+            }
+            .logo{
+                width: 120px;
+                height: 120px;
+                background-color: #B7D43E; 
+            }
+            .uhm{
+                margin-top: -5px;
+            }
+            .for{
+                font-size: 25px;
+                font-weight: bold;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color: rgb(117, 7, 7);
+                text-align: center;
+            }
+            .us{
+                margin-top: 25px;
+            }
+            label{
+                font-size: 25px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-weight: bold;
+            }
+            input{
+                height: 35px;
+                border: none;
+                border-radius: 5px;
+                width: 250px;
+            }
+            input:focus-within{
+                border: 3px solid #4285B8;
+                outline: #4285B8;
+            }
+            @media (max-width:500px) {
+                .one{
+                display: flex;
+                margin: 15px;
+            }
+            .name{
+                font-size: 25px;
+                line-height: 32px;
+                margin-top: 10px;
+                margin-left: 10px;
+                color: white;
+                text-align: center;
+            }
+            .logo{
+                width: 65px;
+                height: 65px;
+                background-color: #B7D43E; 
+            }
+            .uhm{
+                margin-top: -5px;
+            }
+            .details{
+                width: 250px;
+            }
+            .log{
+                width: 150px;
+                display: flex;
+                margin: auto;
+            }
+            .for{
+                font-size: 20px;
+                margin-top: 20px;
+            }
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="outer">
+            <div class="one">
+                <div><a href="{%url 'index'%}"><img src="{% static 'university img\art.jpg' %}" alt="" class="logo"></a></div> 
+                <div class="name"><b>Cephas high <div class="uhm">School</div></b></div> 
+            </div>
+            <div class="details">
+                <img src="{% static 'university img\login.jpg' %}" alt="" class="log">
+                <div class="for">For Registered student only</div>
+                <div class="us">
+                    {%load crispy_forms_tags%}
+                    <form action="" method="POST">
+                        {%csrf_token%}
+                        {{form|crispy}}
+                        <br>
+                        <button>submit</button>
+                    
+                    </form>
+                    <br><br>
+                    click <a href="{%url 'reg'%}">here</a>  to create new account 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
